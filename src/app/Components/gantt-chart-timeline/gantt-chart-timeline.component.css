@@ -1,0 +1,42 @@
+.layout-grid {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.timespan {
+    grid-row: 1;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.weekdays {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+}
+
+.weekday {
+    padding: 10px;
+    width: 50px;
+    text-align: center;
+}
+
+.light {
+    background-color: rgba(0, 0, 0, 0.1);    
+}
+
+.middle {
+    background-color: rgba(0, 0, 0, 0.15);    
+}
+
+.dark {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.deep-dark {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+}

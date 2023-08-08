@@ -1,0 +1,8 @@
+<div class="chart">
+    <div class="timeline">
+        <ul *ngFor="let date of dates" class="dates">
+            <!-- <li>{{date}}</li> -->
+            <gantt-chart-timeline [timespan]="date"></gantt-chart-timeline>
+        </ul>
+    </div>
+</div>

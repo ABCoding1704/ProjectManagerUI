@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './Components/toolbar/toolbar.component';
+import { GanttChartComponent } from './Components/gantt-chart/gantt-chart.component';
+import { GanttChartTimelineComponent } from './Components/gantt-chart-timeline/gantt-chart-timeline.component';
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,  
+    GanttChartComponent, 
+    GanttChartTimelineComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToolbarComponent
+    ToolbarComponent,    
   ],
   providers: [],
   bootstrap: [AppComponent]
