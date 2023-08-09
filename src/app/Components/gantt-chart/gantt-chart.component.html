@@ -1,8 +1,17 @@
-<div class="chart">
+<div class="layout">
+    <div class="phase-list">
+        <phase-list></phase-list>
+    </div>
+    
     <div class="timeline">
         <ul *ngFor="let date of dates" class="dates">
-            <!-- <li>{{date}}</li> -->
             <gantt-chart-timeline [timespan]="date"></gantt-chart-timeline>
+        </ul>
+    </div>
+
+    <div class="chart">
+        <ul *ngFor="let day of days" class="days">
+            <gantt-chart-day [dayDate]="day"></gantt-chart-day>
         </ul>
     </div>
 </div>

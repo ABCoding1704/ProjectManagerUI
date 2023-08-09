@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
 
-
-// var today: Date
-// var day: number
-
 var startDate: Date = new Date(2023, 7, 2)
 var mondayStartDate: Date = new Date()
 var endDate: Date = new Date(2023, 7, 29)
 var mondayEndDate: Date = new Date()
 var weekCount: number
+const DAYS: Date[] = []
 const DATES: string[] = []
-
 
 @Component({
   selector: 'gantt-chart',
@@ -19,12 +15,13 @@ const DATES: string[] = []
 })
 export class GanttChartComponent {
 
+  days = DAYS
+  day: Date = new Date()
   dates = DATES
-  monday: Date = new Date()  
-  sunday: Date = new Date()  
+  monday: Date = new Date()
+  sunday: Date = new Date()
   mondayStr = ""
-  sundayStr = ""  
-  // todayString = ""
+  sundayStr = ""
   
   ngOnInit(): void {
     this.setValuesTimeline()
@@ -36,6 +33,15 @@ export class GanttChartComponent {
     mondayEndDate.setDate(endDate.getDate() - (endDate.getDay() - 1))
     
     weekCount = (((mondayEndDate.getTime() - mondayStartDate.getTime())) / (1000 * 3600 * 24) + 7) / 7
+
+    //Set dates of each day
+    this.day.setDate(mondayStartDate.getDate())
+    this.day.setMonth(mondayStartDate.getMonth())
+    this.day.setFullYear(mondayStartDate.getFullYear())
+    for (let index = 0; index < weekCount * 7; index++) {
+      DAYS.push(new Date(this.day))
+      this.day.setDate(this.day.getDate() + 1)
+    }
 
     this.monday = mondayStartDate
     for (let index = 0; index < weekCount; index++) {

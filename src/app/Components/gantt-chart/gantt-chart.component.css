@@ -1,28 +1,51 @@
-.chart {
+.layout {
     border: solid; /* tempoary */
- }
+    display: grid;
+    grid-column: auto auto;
+    grid-row: auto auto;
+}
 
- .timeline {
+.phase-list {
+   grid-row: 2;
+   grid-column: 1;
+   border: solid;
+}
+
+.timeline {
+   grid-row: 1;
+   grid-column: 2;
+   display: grid;
+   grid-auto-flow: column;
    overflow: auto;
-   width: 2500px;
+   width: 100%;
    white-space: nowrap;
- }
 
- .dates {
+}
+
+.timeline ul {
+   margin: 0; /* To remove default bottom margin */ 
+   padding: 0; /* To remove default left padding */
+}
+
+.dates {
    list-style: none;
-   display: inline-block;
- }
+}
 
- /* div.scrollmenu {
-   background-color: #333;
+.chart {
+   grid-row: 2;
+   grid-column: 2;
+   display: grid;
+   grid-auto-flow: column;
    overflow: auto;
+   width: 100%;
    white-space: nowrap;
- }
- 
- div.scrollmenu a {
-   display: inline-block;
-   color: white;
-   text-align: center;
-   padding: 14px;
-   text-decoration: none;
- } */
+}
+
+.chart ul {
+   margin: 0; /* To remove default bottom margin */ 
+   padding: 0; /* To remove default left padding */
+}
+
+.days {
+   list-style: none;
+}

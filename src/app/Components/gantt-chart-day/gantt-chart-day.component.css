@@ -1,0 +1,22 @@
+.layout {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.weekday {
+    grid-row: 1;
+    width: 50px;
+    text-align: center;
+    padding: 10px;
+}
+
+.day {
+    grid-row: 2;
+}
+
+.phases {
+    list-style: none;
+    width: 50px;
+    margin: 0;
+    padding: 0; 
+}

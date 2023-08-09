@@ -3,7 +3,7 @@
     grid-template-rows: auto auto;
 }
 
-.timespan {
+.timespan {    
     grid-row: 1;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.05);
