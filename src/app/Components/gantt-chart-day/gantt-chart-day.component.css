@@ -20,3 +20,8 @@
     margin: 0;
     padding: 0; 
 }
+
+.item {
+    height: 50px;
+    border: solid;
+}

@@ -1,17 +1,66 @@
 <div class="layout">
-    <div class="phase-list">
-        <phase-list></phase-list>
+    <div class="phases-title">
+        <h1>Phases</h1>
+    </div>
+
+    <div class="phases-content">
+        <!-- <phase-list></phase-list> -->
+        <ul *ngFor="let phase of this.phases" class="phases-list">
+            <div class="phase-item">{{phase.name}}</div>
+        </ul>
     </div>
     
     <div class="timeline">
         <ul *ngFor="let date of dates" class="dates">
-            <gantt-chart-timeline [timespan]="date"></gantt-chart-timeline>
+            <!-- <gantt-chart-timeline [timespan]="date"></gantt-chart-timeline> -->
+            <div class="timeline-layout">
+                <div class="timespan">
+                    <span>{{date}}</span>
+                </div>
+                <!-- <div class="weekdays">
+                    <div class="weekday light" style="grid-column: 1;">
+                        <span>Mon</span>
+                    </div>
+                    <div class="weekday middle" style="grid-column: 2;">
+                        <span>Tue</span>
+                    </div>
+                    <div class="weekday light" style="grid-column: 3;">
+                        <span>Wed</span>
+                    </div>
+                    <div class="weekday middle" style="grid-column: 4;">
+                        <span>Thu</span>
+                    </div>
+                    <div class="weekday light" style="grid-column: 5;">
+                        <span>Fri</span>
+                    </div>
+                    <div class="weekday dark" style="grid-column: 6;">
+                        <span>Sat</span>
+                    </div>
+                    <div class="weekday deep-dark" style="grid-column: 7;">
+                        <span>Sun</span>
+                    </div>
+                </div> -->
+            </div>
+        </ul>
+        <ul *ngFor="let day of this.days" class="weekdays">            
+            <div class="weekday">
+                <span>{{day.Weekday}}</span>
+            </div>
         </ul>
     </div>
 
-    <div class="chart">
-        <ul *ngFor="let day of days" class="days">
-            <gantt-chart-day [dayDate]="day"></gantt-chart-day>
+    <div class="chart" id="box">
+        <ul *ngFor="let day of this.days">
+            <!-- <gantt-chart-day [dayDate]="day"></gantt-chart-day> -->
+            <!-- <div class="weekday">
+                <span>{{day.Weekday}}</span>
+            </div> -->
+            
+            <div class="day">
+                <ul *ngFor="let phase of this.phases" class="phases">
+                    <div class="item">{{phase.name}}</div>
+                </ul>
+            </div>
         </ul>
     </div>
 </div>

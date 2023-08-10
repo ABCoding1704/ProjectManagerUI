@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
+import { PhaseService } from 'src/app/Services/phase.service';
+
+interface Day {
+  Date: Date;
+  Weekday: string
+}
 
 var startDate: Date = new Date(2023, 7, 2)
 var mondayStartDate: Date = new Date()
 var endDate: Date = new Date(2023, 7, 29)
 var mondayEndDate: Date = new Date()
 var weekCount: number
-const DAYS: Date[] = []
-const DATES: string[] = []
+var DAYS: Day[] = []
+var DATES: string[] = []
 
 @Component({
   selector: 'gantt-chart',
@@ -15,6 +21,10 @@ const DATES: string[] = []
 })
 export class GanttChartComponent {
 
+  //Phases
+  phases: any
+
+  //Timeline
   days = DAYS
   day: Date = new Date()
   dates = DATES
@@ -22,9 +32,24 @@ export class GanttChartComponent {
   sunday: Date = new Date()
   mondayStr = ""
   sundayStr = ""
+  // weekday: string = ""
+
+  constructor(private phaseService: PhaseService) { }
   
   ngOnInit(): void {
-    this.setValuesTimeline()
+    this.getPhases()
+    this.setValuesTimeline()    
+  }
+
+  scroll() {
+    var box = document.getElementById('box')
+    box?.scroll(100, 1000)
+  }
+
+  getPhases() {
+    this.phaseService.getPhases().subscribe(res => {
+      this.phases = res
+    })
   }
 
   setValuesTimeline(): void {
@@ -39,9 +64,15 @@ export class GanttChartComponent {
     this.day.setMonth(mondayStartDate.getMonth())
     this.day.setFullYear(mondayStartDate.getFullYear())
     for (let index = 0; index < weekCount * 7; index++) {
-      DAYS.push(new Date(this.day))
+      let day: Day = {
+        Date: new Date(this.day),
+        Weekday: this.getWeekday(this.day)
+      }
+
+      DAYS.push(day)
       this.day.setDate(this.day.getDate() + 1)
     }
+
 
     this.monday = mondayStartDate
     for (let index = 0; index < weekCount; index++) {
@@ -61,6 +92,27 @@ export class GanttChartComponent {
     }
   }
 
+  getWeekday(dayDate: Date) : string {
+    switch(dayDate.getDay()) {
+      case 1:
+        return "Mon"        
+      case 2:
+        return "Tue"        
+      case 3:
+        return "Wed"        
+      case 4:
+        return "Thu"        
+      case 5:
+        return "Fri"        
+      case 6:
+        return "Sat"        
+      case 0:
+        return "Sun"        
+      default:
+        return ""        
+    }
+  }
+
   beginWithZero(dayOrMonth: number): string {
     if(dayOrMonth < 10) {
       return "0" + dayOrMonth
@@ -70,4 +122,5 @@ export class GanttChartComponent {
     }
     
   }
+  
 }

@@ -1,14 +1,39 @@
 .layout {
-    border: solid; /* tempoary */
     display: grid;
     grid-column: auto auto;
     grid-row: auto auto;
 }
 
-.phase-list {
-   grid-row: 2;
+.phases-title {
    grid-column: 1;
-   /* border: solid; */
+   grid-row: 1;
+   height: 50px;
+}
+
+.phases-content {
+   grid-column: 1;
+   grid-row: 2;
+}
+
+.phases-list {
+   margin: 0;
+   padding: 0;
+}
+
+.phase-item {
+   border: solid;
+   border-width: 1px;
+   border-color: rgba(75, 121, 250, 0.0);
+   border-radius: 3px;
+   transition: border-color 100ms ease-out 100ms;
+   margin: 5px 10px 5px 10px;
+   padding: 2px 20px 2px 10px;
+   line-height: 14px;
+}
+
+.phase-item:hover {
+   border-color: rgba(75, 121, 250, 0.2);
+   cursor: pointer;
 }
 
 .timeline {
@@ -16,6 +41,7 @@
    grid-column: 2;
    display: grid;
    grid-auto-flow: column;
+   grid-template-rows: auto auto;
    overflow: auto;
    width: 100%;
    white-space: nowrap;
@@ -23,17 +49,60 @@
 }
 
 .timeline ul {
-   margin: 0; /* To remove default bottom margin */ 
-   padding: 0; /* To remove default left padding */
-}
+   margin: 0; 
+   padding: 0;
+} 
 
 .dates {
-   list-style: none;
+   grid-row: 1;
+}
+
+.timeline-layout {
+   display: grid;
+   grid-template-rows: auto auto;
+}
+
+.timespan {    
+   grid-row: 1;
+   text-align: center;
+   background-color: rgba(0, 0, 0, 0.05);
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+}
+
+.weekdays {
+   grid-row: 2;
+   display: grid;
+   grid-auto-flow: column;
+}
+
+.weekday {
+   padding: 10px;
+   width: 50px;
+   text-align: center;
+}
+
+.light {
+   background-color: rgba(0, 0, 0, 0.1);    
+}
+
+.middle {
+   background-color: rgba(0, 0, 0, 0.15);    
+}
+
+.dark {
+   background-color: rgba(0, 0, 0, 0.2);
+   color: white;
+}
+
+.deep-dark {
+   background-color: rgba(0, 0, 0, 0.25);
+   color: white;
 }
 
 .chart {
+   grid-column: 2;   
    grid-row: 2;
-   grid-column: 2;
    display: grid;
    grid-auto-flow: column;
    overflow: auto;
@@ -42,10 +111,17 @@
 }
 
 .chart ul {
-   margin: 0; /* To remove default bottom margin */ 
-   padding: 0; /* To remove default left padding */
+   margin: 0; 
+   padding: 0; 
 }
 
-.days {
-   list-style: none;
+.weekday {
+   grid-row: 1;
+   width: 50px;
+   text-align: center;
+   padding: 10px;
+}
+
+.day {
+   grid-row: 2;
 }

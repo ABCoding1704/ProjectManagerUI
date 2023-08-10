@@ -9,13 +9,13 @@ import { Phase } from 'src/app/Models/Phase';
 })
 export class PhaseListComponent {
   // phases: Phase[] = []
-  phases: any
+  // phases: any
 
-  constructor(private phaseService: PhaseService) { }
+  // constructor(private phaseService: PhaseService) { }
 
-  ngOnInit() {
-    this.phaseService.getPhases().subscribe(res => {
-      this.phases = res
-    })
-  }
+  // ngOnInit() {
+  //   this.phaseService.getPhases().subscribe(res => {
+  //     this.phases = res
+  //   })
+  // }
 }
