@@ -123,4 +123,15 @@ export class GanttChartComponent {
     
   }
   
+  scrolling(): void {
+    let phasesElement = document.getElementById('phases-content')
+    let timelineElement = document.getElementById('timeline')
+    let chartElement = document.getElementById('chart')
+    
+    if (timelineElement != null && chartElement != null && phasesElement != null)
+    {
+      phasesElement.scroll(0, chartElement.scrollTop)
+      timelineElement.scroll(chartElement.scrollLeft, 0)
+    }
+  }  
 }

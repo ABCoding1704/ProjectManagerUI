@@ -3,13 +3,13 @@
         <h1>Phases</h1>
     </div>
 
-    <div class="phases-content">
+    <div class="phases-content" id="phases-content">
         <ul *ngFor="let phase of this.phases" class="phases-list">
             <div class="phase-item">{{phase.name}}</div>
         </ul>
     </div>
     
-    <div class="timeline">
+    <div class="timeline" id="timeline">
         <div class="datespans">
             <ul *ngFor="let date of dates">
                 <div class="datespan">
@@ -26,11 +26,11 @@
         </div>        
     </div>
 
-    <div class="chart" id="box">
+    <div class="chart" id="chart" (scroll)="scrolling()">
         <ul *ngFor="let day of this.days">            
             <div class="day">
-                <ul *ngFor="let phase of this.phases" class="phases">
-                    <div class="item">{{phase.name}}</div>
+                <ul *ngFor="let phase of this.phases" class="phases-chart-list">
+                    <div class="phases-chart-item"></div>
                 </ul>
             </div>
         </ul>
