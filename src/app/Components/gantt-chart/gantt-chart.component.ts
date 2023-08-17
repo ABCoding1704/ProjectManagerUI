@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Phase } from 'src/app/Models/Phase';
 import { PhaseService } from 'src/app/Services/phase.service';
 
-interface Day {
+export interface Day {
   Date: Date;
   Weekday: string
 }
@@ -19,8 +20,7 @@ var DATES: string[] = []
   templateUrl: './gantt-chart.component.html',
   styleUrls: ['./gantt-chart.component.css']
 })
-export class GanttChartComponent {
-
+export class GanttChartComponent {  
   //Phases
   phases: any
 
@@ -32,7 +32,6 @@ export class GanttChartComponent {
   sunday: Date = new Date()
   mondayStr = ""
   sundayStr = ""
-  // weekday: string = ""
 
   constructor(private phaseService: PhaseService) { }
   
@@ -134,4 +133,10 @@ export class GanttChartComponent {
       timelineElement.scroll(chartElement.scrollLeft, 0)
     }
   }  
+  getChartItem(day: Day, phase: Phase) {
+    console.log('### INFO: day ###')
+    console.log(day)
+    console.log('### INFO: phase ###')
+    console.log(phase)
+  }
 }

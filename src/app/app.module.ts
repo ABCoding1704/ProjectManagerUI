@@ -11,7 +11,7 @@ import { GanttChartComponent } from './Components/gantt-chart/gantt-chart.compon
 @NgModule({
   declarations: [
     AppComponent,  
-    GanttChartComponent, 
+    GanttChartComponent,  
   ],
   imports: [
     BrowserModule,

@@ -30,7 +30,7 @@
         <ul *ngFor="let day of this.days">            
             <div class="day">
                 <ul *ngFor="let phase of this.phases" class="phases-chart-list">
-                    <div class="phases-chart-item"></div>
+                    <div (click)="getChartItem(day, phase)" class="phases-chart-item"></div>
                 </ul>
             </div>
         </ul>
